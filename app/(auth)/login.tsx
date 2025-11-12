@@ -169,41 +169,6 @@ export default function Login() {
             <Text style={{ color: light.sub, marginTop: 4, marginBottom: 16 }}>
               Enter your credentials to access your account.
             </Text>
-            <View style={{ flexDirection: "row", gap: 12 }}>
-              <Pressable
-                style={{
-                  flex: 1,
-                  backgroundColor: light.surface,
-                  borderWidth: 1,
-                  borderColor: light.border,
-                  paddingVertical: 12,
-                  borderRadius: 12,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ color: light.ink, fontWeight: "700" }}>
-                  Continue with Google
-                </Text>
-              </Pressable>
-              <Pressable
-                style={{
-                  flex: 1,
-                  backgroundColor: light.surface,
-                  borderWidth: 1,
-                  borderColor: light.border,
-                  paddingVertical: 12,
-                  borderRadius: 12,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ color: light.ink, fontWeight: "700" }}>
-                  Continue with Apple
-                </Text>
-              </Pressable>
-            </View>
-
-            <Divider />
-
             <Label>Email address</Label>
             <TextInput
               placeholder='you@company.com'
@@ -223,7 +188,6 @@ export default function Login() {
                 Enter a valid email (e.g., you@domain.com)
               </Text>
             )}
-
             <View style={{ height: 12 }} />
             <Label>Password</Label>
             <View
@@ -252,7 +216,6 @@ export default function Login() {
                 Password must be at least 6 characters.
               </Text>
             )}
-
             <Pressable
               onPress={signIn}
               disabled={!formOk || loading}
@@ -273,7 +236,6 @@ export default function Login() {
                 {loading ? "..." : "Login"}
               </Text>
             </Pressable>
-
             <Pressable
               onPress={() => router.push("/(auth)/signup")}
               style={{ paddingVertical: 14 }}

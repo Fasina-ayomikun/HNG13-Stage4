@@ -194,41 +194,6 @@ export default function Signup() {
               Join Framez and start sharing moments.
             </Text>
 
-            <View style={{ flexDirection: "row", gap: 12 }}>
-              <Pressable
-                style={{
-                  flex: 1,
-                  backgroundColor: light.surface,
-                  borderWidth: 1,
-                  borderColor: light.border,
-                  paddingVertical: 12,
-                  borderRadius: 12,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ color: light.ink, fontWeight: "700" }}>
-                  Continue with Google
-                </Text>
-              </Pressable>
-              <Pressable
-                style={{
-                  flex: 1,
-                  backgroundColor: light.surface,
-                  borderWidth: 1,
-                  borderColor: light.border,
-                  paddingVertical: 12,
-                  borderRadius: 12,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ color: light.ink, fontWeight: "700" }}>
-                  Continue with Apple
-                </Text>
-              </Pressable>
-            </View>
-
-            <Divider />
-
             <Label>Full name</Label>
             <TextInput
               placeholder='e.g. Ayomikun Fasina'
