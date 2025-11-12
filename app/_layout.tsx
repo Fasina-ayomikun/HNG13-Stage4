@@ -5,7 +5,7 @@ import { palette } from "../lib/theme";
 import { useAuth } from "../lib/useAuth";
 
 export default function RootLayout() {
-  useAuth(); // initializes session listener
+  useAuth();
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: palette.bg }}>
       <StatusBar barStyle='light-content' />

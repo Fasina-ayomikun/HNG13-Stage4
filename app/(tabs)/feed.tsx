@@ -63,7 +63,9 @@ export default function Feed() {
         }
       )
       .subscribe();
-    return () => supabase.removeChannel(channel);
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const light = useMemo(

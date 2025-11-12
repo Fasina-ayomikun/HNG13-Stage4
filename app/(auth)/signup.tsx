@@ -76,6 +76,7 @@ export default function Signup() {
 
   const { width } = Dimensions.get("window");
   const isWide = width >= 900;
+  const dir: "row" | "column" = isWide ? "row" : "column";
 
   const light = useMemo(
     () => ({
@@ -98,7 +99,7 @@ export default function Signup() {
         backgroundColor: light.bg,
       },
       scroll: {
-        minHeight: "100%",
+        flexGrow: 1,
         padding: 24,
         paddingVertical: isWide ? 48 : 24,
         justifyContent: "center" as const,
@@ -113,8 +114,8 @@ export default function Signup() {
         shadowOpacity: 0.06,
         shadowRadius: 12,
         elevation: 3,
-        overflow: "hidden",
-        flexDirection: isWide ? "row" : "column",
+        overflow: "hidden" as const,
+        flexDirection: dir,
       },
       left: { flex: 1, padding: isWide ? 36 : 22 },
       right: {
@@ -166,14 +167,6 @@ export default function Signup() {
 
   const Label = ({ children }: { children: string }) => (
     <Text style={styles.label}>{children}</Text>
-  );
-
-  const Divider = () => (
-    <View style={styles.dividerRow}>
-      <View style={styles.dividerLine} />
-      <Text style={styles.dividerText}>or</Text>
-      <View style={styles.dividerLine} />
-    </View>
   );
 
   return (
@@ -308,7 +301,7 @@ export default function Signup() {
               }}
             >
               <Text style={{ color: "#fff", fontWeight: "800" }}>
-                {loading ? "..." : "Create account"}
+                {loading ? "Loading..." : "Create account"}
               </Text>
             </Pressable>
 

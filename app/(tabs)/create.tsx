@@ -80,7 +80,6 @@ export default function Create() {
     }
   };
 
-  // 💡 Updated light theme
   const light = {
     bg: "#f9fafb",
     card: "#ffffff",

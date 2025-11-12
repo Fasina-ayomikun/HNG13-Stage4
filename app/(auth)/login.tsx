@@ -18,7 +18,6 @@ import { palette } from "../../lib/theme";
 import { validateEmail, validatePassword } from "../../lib/validation";
 
 export default function Login() {
-  // ------------------ logic (unchanged) ------------------
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPwd, setShowPwd] = useState(false);
@@ -46,7 +45,6 @@ export default function Login() {
       setLoading(false);
     }
   };
-  // -------------------------------------------------------
 
   const { width } = Dimensions.get("window");
   const isWide = width >= 900;
@@ -139,15 +137,6 @@ export default function Login() {
     [light, isWide]
   );
 
-  // ---- helper subcomponents declared once ----
-  const Divider = () => (
-    <View style={styles.dividerRow}>
-      <View style={styles.dividerLine} />
-      <Text style={styles.dividerText}>or</Text>
-      <View style={styles.dividerLine} />
-    </View>
-  );
-
   const Label = ({ children }: { children: string }) => (
     <Text style={styles.label}>{children}</Text>
   );
@@ -233,7 +222,7 @@ export default function Login() {
               }}
             >
               <Text style={{ color: "#fff", fontWeight: "800" }}>
-                {loading ? "..." : "Login"}
+                {loading ? "Logging in" : "Login"}
               </Text>
             </Pressable>
             <Pressable
