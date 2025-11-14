@@ -33,10 +33,9 @@ export default function Create() {
     const { data: sess } = await supabase.auth.getSession();
     if (!sess.session) throw new Error("Please log in first.");
 
-    console.log("uploading");
-
-    const response = await fetch(uri);
-    const blob = await response.blob();
+    const res = await fetch(uri);
+    const ab = await res.arrayBuffer();
+    const bytes = new Uint8Array(ab);
 
     const filePath = `post_${Date.now()}_${Math.random()
       .toString(36)
@@ -44,7 +43,7 @@ export default function Create() {
 
     const { data, error } = await supabase.storage
       .from("images")
-      .upload(filePath, blob, {
+      .upload(filePath, bytes, {
         contentType: "image/jpeg",
         upsert: false,
       });
@@ -55,7 +54,6 @@ export default function Create() {
       .from("images")
       .getPublicUrl(data.path);
 
-    console.log("✅ Uploaded:", pub.publicUrl);
     return pub.publicUrl;
   };
 
